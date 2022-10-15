@@ -350,20 +350,6 @@ def getLines(groups):
     return lines
 
 
-def getParagraphs(lines) -> List:
-    paragraphs = []
-
-    for line in lines:
-            inserted = False
-            for paragraph in paragraphs:
-                if paragraph.insertLine(line):
-                    inserted = True
-                    break 
-            if not inserted:
-                paragraphs.append(Paragraph(line))
-
-    return paragraphs
-
 
 def transText(id, text) -> None:
     tText = (googletrans.Translator()
