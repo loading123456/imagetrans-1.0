@@ -160,11 +160,11 @@ def translate(imagePath, savePath):
 
 def getCImgData(img, savePath) ->  List:
     cImg = getContrastImg(img)
-    cv2.imwrite(savePath+'.jpg', cImg)
-    cImg = cv2.imread(savePath+'.jpg')
+    cv2.imwrite('cImg.jpg', cImg)
+    cImg = cv2.imread('cImg.jpg')
 
     cImgData = pytesseract.image_to_data(cImg, lang='eng', output_type=Output.DICT)
-    os.remove(savePath+'.jpg')
+    os.remove('cImg.jpg')
     return cImgData
 
 def getWords(imgData, cImgData, img):
@@ -376,3 +376,7 @@ def draw(img, line):
 
     img.paste(textBox, (x, y), textBox.convert("RGBA"))
 
+
+
+
+translate("images/1.png", "output/1.png")
