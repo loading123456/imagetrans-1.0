@@ -379,4 +379,4 @@ def draw(img, line):
 
 
 
-translate("images/1.png", "output/1.png")
+# translate("images/1.png", "output/1.png")
