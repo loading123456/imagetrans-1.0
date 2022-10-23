@@ -117,7 +117,7 @@ class Line(Box):
 
 
 def translate(imagePath, savePath):
-    print("===========",imagePath,'===================')
+    # print("===========",imagePath,'===================')
     st = time.time()
     img = cv2.imread(imagePath)
 
@@ -155,7 +155,7 @@ def translate(imagePath, savePath):
 
 
 
-    print("Excuse time: ", time.time() - st)
+    # print("Excuse time: ", time.time() - st)
 
 
 def getCImgData(img, savePath) ->  List:
@@ -371,12 +371,10 @@ def draw(img, line):
     textBox = Image.new(mode="RGBA", size=(textWidth, textHeight ), color=(0, 0, 0, 0))
     d = ImageDraw.Draw(textBox)
     d.text((0, 0), line.text, font=font, fill=(0, 0, 0))
-    textBox.thumbnail((w, 1000  ), Image.ANTIALIAS)
+    textBox.thumbnail((w, 1000  ), Image.Resampling.LANCZOS)
     textBox = textBox.crop((0, 0, w, h))
 
     img.paste(textBox, (x, y), textBox.convert("RGBA"))
 
 
 
-
-# translate("images/1.png", "output/1.png")
